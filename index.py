@@ -1,11 +1,13 @@
 import os
 import sys
+from pathlib import Path
 
+PROJECT_ROOT = Path(__file__).resolve().parent
+if str(PROJECT_ROOT) not in sys.path:
+    sys.path.insert(0, str(PROJECT_ROOT))
 
-sys.path.append(os.path.dirname(os.path.dirname(_file_)))
-
-os.environ.setdefault('DJANGO_SETTINGS_MODULE', 'bootstrapdjangosettings')
-
+os.environ.setdefault("DJANGO_SETTINGS_MODULE", "bootstrapdjango.settings")
 
 from django.core.wsgi import get_wsgi_application
+
 app = get_wsgi_application()
